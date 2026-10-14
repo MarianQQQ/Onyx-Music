@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Onyx Music — The High-Performance YouTube Music Desktop Client</title>
-  <meta name="description" content="Onyx Music: Built with Tauri v2, Rust 2024, and SolidJS. Ultra-lightweight ~48MB footprint, native 3-band parametric DSP, interactive synced lyrics, and built-in SponsorBlock." />
+  <title>Onyx Music — High-Performance YouTube Music Desktop Client</title>
+  <meta name="description" content="Onyx Music: Built with Tauri v2, Rust 2024, and SolidJS. Ultra-lean ~79MB UI footprint, direct WASAPI audio pipeline, interactive synced lyrics, and built-in SponsorBlock." />
   <meta name="keywords" content="YouTube Music Desktop, Tauri v2, Rust, SolidJS, lightweight music player, SponsorBlock, synced lyrics, DSP equalizer" />
   
   <!-- Favicon -->
@@ -13,7 +13,7 @@
   <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Onyx Music — High-Performance YouTube Music Desktop Client" />
-  <meta property="og:description" content="Pure sound. Zero bloat. Native WASAPI audio pipeline, 48MB UI RAM, 3,000+ track virtualization, and built-in SponsorBlock." />
+  <meta property="og:description" content="Pure sound. Zero bloat. Direct WASAPI audio pipeline, ~79MB UI RAM, 3,000+ track virtualization, and built-in SponsorBlock." />
   <meta property="og:image" content="assets/preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Onyx Music — High-Performance YouTube Music Desktop Client" />
@@ -25,8 +25,8 @@
 </head>
 <body>
   <!-- Ambient Atmosphere -->
-  <div class="ambient-glow" aria-hidden="true"></div>
-  <div class="ambient-grid" aria-hidden="true"></div>
+  <div class="hero-ambient-spot" aria-hidden="true"></div>
+  <div class="subtle-grid" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="site-header">
@@ -34,27 +34,25 @@
       <a href="#" class="brand">
         <img src="assets/icon.png" alt="Onyx Emblem" class="brand-icon" />
         <span>Onyx Music</span>
-        <span class="version-pill">v0.2.0</span>
+        <span class="version-badge">v0.2.0</span>
       </a>
 
       <nav>
         <ul class="nav-links">
-          <li><a href="#demo">Live DSP</a></li>
-          <li><a href="#benchmarks">Benchmarks</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#preview">Interface</a></li>
+          <li><a href="#benchmarks">Telemetry</a></li>
+          <li><a href="#features">Architecture</a></li>
           <li><a href="#download">Download</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
         <a href="https://github.com/MarianQQQ/Onyx-Music" target="_blank" rel="noreferrer" class="btn btn-quiet btn-small">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
           </svg>
           <span>GitHub</span>
         </a>
-        <a href="#download" class="btn btn-accent btn-small">Download</a>
+        <a href="#download" class="btn btn-primary btn-small">Download</a>
       </div>
     </div>
   </header>
@@ -62,164 +60,103 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
+      <div class="wrap">
+        <div class="hero-header-box">
+          <div class="hero-meta-pill">
+            <span class="live-indicator"></span>
             <span>ONYX 0.2.0 · NATIVE YOUTUBE MUSIC DESKTOP</span>
           </div>
 
           <h1 class="hero-title">
-            <span class="gradient-text">Pure sound.</span><br />
-            <span class="gradient-text">Zero bloat.</span><br />
-            <span class="accent-text">Done right.</span>
+            Pure sound.<br />
+            <span class="title-faded">Zero bloat.</span><br />
+            <span class="title-accent">Done right.</span>
           </h1>
 
           <p class="hero-lede">
-            Engineered with Tauri v2, Rust 2024, and SolidJS. A rich desktop GUI with ~48MB footprint, native 3-band parametric DSP, interactive synced lyrics, and built-in SponsorBlock.
+            Engineered with Tauri v2, Rust 2024, and SolidJS. A true OLED dark aesthetic with an ultra-lean runtime, direct WASAPI audio pipeline, interactive synced lyrics, and built-in SponsorBlock.
           </p>
 
           <div class="hero-actions">
-            <div class="dropdown-container">
-              <a href="#download" class="btn btn-solid">
+            <div class="download-split-btn">
+              <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Setup.exe" class="split-btn-main">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Download for Windows</span>
+                <span>Download for Windows (2.1 MB)</span>
               </a>
-              <div class="dropdown-menu">
-                <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Setup.exe" class="dropdown-item">
-                  <div>
-                    <div class="dropdown-item-title">Windows Setup Installer (2.1 MB)</div>
-                    <div class="dropdown-item-desc">Recommended · Start menu shortcuts & auto-update</div>
-                  </div>
+              <div class="split-btn-arrow" title="Choose package">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="hero-dropdown">
+                <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Setup.exe" class="hero-drop-item">
+                  <div class="hero-drop-title">Windows Setup Installer (2.1 MB)</div>
+                  <div class="hero-drop-sub">Recommended · Start menu shortcuts &amp; auto-update</div>
                 </a>
-                <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Music.exe" class="dropdown-item">
-                  <div>
-                    <div class="dropdown-item-title">Portable Binary (6.5 MB)</div>
-                    <div class="dropdown-item-desc">Zero install · Runs anywhere from USB</div>
-                  </div>
+                <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Music.exe" class="hero-drop-item">
+                  <div class="hero-drop-title">Portable Binary (6.5 MB)</div>
+                  <div class="hero-drop-sub">Zero install · Runs anywhere from USB</div>
                 </a>
               </div>
             </div>
 
-            <a href="#demo" class="btn btn-quiet">
-              <span>Try Live DSP Demo</span>
+            <a href="#features" class="btn btn-quiet">
+              <span>View Architecture</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </a>
           </div>
 
-          <div class="hero-chips">
-            <div class="hero-chip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              <span>~48.5 MB UI Memory</span>
+          <div class="telemetry-strip">
+            <div class="telemetry-item">
+              <span>UI Memory:</span>
+              <b>79.9 MB</b>
             </div>
-            <div class="hero-chip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              <span>Direct WASAPI Stream</span>
+            <span class="telemetry-sep">·</span>
+            <div class="telemetry-item">
+              <span>Calm Playback CPU:</span>
+              <b>0.1%</b>
             </div>
-            <div class="hero-chip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              <span>Zero Account Risks</span>
+            <span class="telemetry-sep">·</span>
+            <div class="telemetry-item">
+              <span>Total Runtime Tree:</span>
+              <b>237 MB</b>
+            </div>
+            <span class="telemetry-sep">·</span>
+            <div class="telemetry-item">
+              <span>Cold Startup:</span>
+              <b>&lt; 0.8s</b>
             </div>
           </div>
         </div>
 
-        <!-- Interactive Particle Orb -->
-        <div class="hero-stage">
-          <div class="stage-ambient-ring"></div>
-          <canvas id="hero-canvas"></canvas>
-          <div class="stage-hint">Hover / drag to interact</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Live DSP & EQ Demo -->
-    <section class="section" id="demo">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="section-tag">Auditory Experience</span>
-          <h2 class="section-title">Studio-grade DSP in your browser.</h2>
-          <p class="section-desc">
-            Test the real-time 3-band parametric equalizer engine directly on this page. Adjust sliders or pick presets to hear audio shaping in action.
-          </p>
-        </div>
-
-        <div class="interactive-dsp-card">
-          <div class="dsp-grid">
-            <!-- Visualizer Spectrum -->
-            <div class="dsp-visualizer-container">
-              <canvas id="dsp-canvas"></canvas>
-              <div class="dsp-playback-bar">
-                <div class="dsp-track-info">
-                  <div class="dsp-track-cover">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M9 18V5l12-2v13"></path>
-                      <circle cx="6" cy="18" r="3"></circle>
-                      <circle cx="18" cy="16" r="3"></circle>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="dsp-track-name">Analog Harmonic Dreamscape</div>
-                    <div class="dsp-track-sub">Onyx Web Audio Synth Engine</div>
-                  </div>
-                </div>
-
-                <button type="button" id="dsp-play-btn" class="btn btn-solid btn-small">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-                  <span>Play Audio Sample</span>
-                </button>
+        <!-- Master Hardware Window Mockup Centerpiece -->
+        <div class="showcase-stage">
+          <div class="showcase-window">
+            <div class="window-hud">
+              <div class="window-dots">
+                <span class="dot" style="background: #ff5f56;"></span>
+                <span class="dot" style="background: #ffbd2e;"></span>
+                <span class="dot" style="background: #27c93f;"></span>
               </div>
+              <div class="window-status-pill">
+                <div class="audio-meter" title="WASAPI Audio Stream Active">
+                  <span class="meter-bar"></span>
+                  <span class="meter-bar"></span>
+                  <span class="meter-bar"></span>
+                  <span class="meter-bar"></span>
+                  <span class="meter-bar"></span>
+                </div>
+                <span>DIRECT WASAPI STREAM · 48 kHz / 24-BIT</span>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #666;">0.1% CPU</div>
             </div>
-
-            <!-- Equalizer Sliders & Presets -->
-            <div class="dsp-controls">
-              <div class="eq-sliders-row">
-                <!-- Bass -->
-                <div class="eq-slider-col">
-                  <div class="eq-slider-label">Bass (100 Hz)</div>
-                  <div class="eq-slider-val" id="eq-bass-val">0 dB</div>
-                  <input type="range" min="-12" max="12" value="0" step="0.5" id="eq-bass" class="slider-vertical" />
-                </div>
-                <!-- Mid -->
-                <div class="eq-slider-col">
-                  <div class="eq-slider-label">Mid (1 kHz)</div>
-                  <div class="eq-slider-val" id="eq-mid-val">0 dB</div>
-                  <input type="range" min="-12" max="12" value="0" step="0.5" id="eq-mid" class="slider-vertical" />
-                </div>
-                <!-- Treble -->
-                <div class="eq-slider-col">
-                  <div class="eq-slider-label">Treble (8 kHz)</div>
-                  <div class="eq-slider-val" id="eq-treble-val">0 dB</div>
-                  <input type="range" min="-12" max="12" value="0" step="0.5" id="eq-treble" class="slider-vertical" />
-                </div>
-              </div>
-
-              <!-- Presets -->
-              <div>
-                <div class="eq-slider-label" style="text-align: left; margin-bottom: 10px;">Acoustic Tuning Presets:</div>
-                <div class="presets-row">
-                  <button type="button" class="preset-chip active" data-preset="flat">Flat Studio</button>
-                  <button type="button" class="preset-chip" data-preset="bass">Deep Sub-Bass</button>
-                  <button type="button" class="preset-chip" data-preset="vocal">Vocal Clarity</button>
-                  <button type="button" class="preset-chip" data-preset="electro">Electronic Club</button>
-                  <button type="button" class="preset-chip" data-preset="acoustic">Warm Acoustic</button>
-                </div>
-              </div>
-            </div>
+            <img src="assets/preview.png" alt="Onyx Music Desktop Client Interface" class="window-screenshot" />
           </div>
         </div>
       </div>
@@ -229,62 +166,78 @@
     <section class="section" id="benchmarks">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-tag">Performance Benchmark</span>
+          <span class="section-label">Real Telemetry</span>
           <h2 class="section-title">Engineered for speed, not bloat.</h2>
           <p class="section-desc">
-            Measured against modern Electron-based desktop streaming apps on Windows 11. Real telemetry, zero marketing tricks.
+            Direct measurements captured from Windows 11 Task Manager during active playback. Zero marketing fluff.
           </p>
         </div>
 
-        <div class="benchmark-table-wrapper">
+        <div class="benchmark-card">
           <table class="benchmark-table">
             <thead>
               <tr>
                 <th>System Metric</th>
                 <th>Electron Clones (Spotify / Chrome)</th>
-                <th class="highlight">Onyx Music v0.2.0 (Measured)</th>
+                <th class="col-onyx">Onyx Music v0.2.0 (Measured)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <span class="benchmark-metric-title">UI Process Memory (RAM)</span>
-                  <span class="benchmark-metric-desc">Base memory allocated to frontend rendering thread</span>
+                  <span class="metric-title">UI Process Memory (RAM)</span>
+                  <span class="metric-sub">Dedicated memory for the primary rendering thread</span>
                 </td>
-                <td class="val-bad">~450 – 700 MB</td>
-                <td class="highlight val-good">~48.5 MB (10x lighter)</td>
+                <td class="tag-red">~450 – 700 MB</td>
+                <td class="col-onyx tag-green">79.9 MB (9x lighter)</td>
               </tr>
               <tr>
                 <td>
-                  <span class="benchmark-metric-title">Idle CPU Utilization</span>
-                  <span class="benchmark-metric-desc">Processor load while music is paused or running in background</span>
+                  <span class="metric-title">Total Runtime Tree (All 7 Processes)</span>
+                  <span class="metric-sub">UI, GPU, Audio Service, Network, Storage &amp; Crashpad combined</span>
                 </td>
-                <td class="val-bad">1.0% – 2.5%</td>
-                <td class="highlight val-good">0.0% (Zero-spin idle)</td>
+                <td class="tag-red">~850 – 1,400 MB</td>
+                <td class="col-onyx tag-green">237.8 MB Total</td>
               </tr>
               <tr>
                 <td>
-                  <span class="benchmark-metric-title">Cold Startup Latency</span>
-                  <span class="benchmark-metric-desc">Time from process launch to interactive UI</span>
+                  <span class="metric-title">Active Playback CPU Load</span>
+                  <span class="metric-sub">Processor utilization during steady-state music streaming</span>
                 </td>
-                <td class="val-bad">~4.0s – 5.5s</td>
-                <td class="highlight val-good">&lt; 0.8s (Near-instant)</td>
+                <td class="tag-red">2.5% – 6.0%</td>
+                <td class="col-onyx tag-green">0.1% (Near-zero drain)</td>
               </tr>
               <tr>
                 <td>
-                  <span class="benchmark-metric-title">Installer & Binary Size</span>
-                  <span class="benchmark-metric-desc">Disk footprint and download bandwidth</span>
+                  <span class="metric-title">Audio Utility Process Footprint</span>
+                  <span class="metric-sub">Background audio rendering &amp; buffer service</span>
                 </td>
-                <td class="val-bad">~180 MB</td>
-                <td class="highlight val-good">2.1 MB Installer / 6.5 MB Standalone</td>
+                <td class="tag-red">~35 – 60 MB</td>
+                <td class="col-onyx tag-green">3.4 MB (0.0% CPU)</td>
               </tr>
               <tr>
                 <td>
-                  <span class="benchmark-metric-title">Massive Playlist Virtualization</span>
-                  <span class="benchmark-metric-desc">DOM nodes mounted when browsing 3,000+ track collections</span>
+                  <span class="metric-title">Cold Startup Latency</span>
+                  <span class="metric-sub">Time from click to fully interactive UI</span>
                 </td>
-                <td class="val-bad">3,000+ DOM nodes (Memory spikes to 600MB)</td>
-                <td class="highlight val-good">Strictly 35 DOM nodes (Constant 48MB RAM)</td>
+                <td class="tag-red">~4.0s – 5.5s</td>
+                <td class="col-onyx tag-green">&lt; 0.8s (Near-instant)</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="metric-title">Installer &amp; Standalone Size</span>
+                  <span class="metric-sub">Download bandwidth and disk footprint</span>
+                </td>
+                <td class="tag-red">~180 MB</td>
+                <td class="col-onyx tag-green">2.1 MB Setup / 6.5 MB Portable</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="metric-title">Massive Playlist Virtualization</span>
+                  <span class="metric-sub">DOM nodes mounted when browsing 3,000+ track collections</span>
+                </td>
+                <td class="tag-red">3,000+ DOM nodes (Memory spikes to 600MB)</td>
+                <td class="col-onyx tag-green">Strictly 35 DOM rows (Constant memory)</td>
               </tr>
             </tbody>
           </table>
@@ -292,112 +245,171 @@
       </div>
     </section>
 
-    <!-- Feature Pillars -->
+    <!-- The Four Pillars of Onyx -->
     <section class="section" id="features">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-tag">Architecture</span>
+          <span class="section-label">Architecture</span>
           <h2 class="section-title">The Four Pillars of Onyx.</h2>
           <p class="section-desc">
             Everything you wished official YouTube Music had, built with zero compromises.
           </p>
         </div>
 
-        <div class="features-grid">
-          <!-- Pillar 1 -->
-          <div class="feature-card card-wide">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              </svg>
-            </div>
+        <div class="pillars-grid">
+          <!-- Pillar 1: Synced Lyrics -->
+          <div class="pillar-card">
             <div>
-              <h3 class="feature-title">Native Audio Pipeline & Hardware Crossfade</h3>
-              <p class="feature-desc">
-                Dual-slot gapless audio engine with configurable 0–12s crossfade between tracks. Direct WASAPI output, 3-band parametric equalizer, and real-time pitch-preserving playback speed regulation (0.5x – 2.0x).
+              <div class="pillar-header">
+                <span class="pillar-num">01 / KARAOKE ENGINE</span>
+                <div class="pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="pillar-title">Interactive Synced Lyrics</h3>
+              <p class="pillar-desc">
+                Sub-millisecond karaoke synchronization with smooth viewport centering. If a song drifts out of sync, press <code>Alt + Click</code> on any lyric to recalibrate timing in real-time.
               </p>
             </div>
-            <span class="feature-badge">Web Audio API · WASAPI 24-Bit</span>
+
+            <!-- Interactive Demo Inside Card -->
+            <div class="lyrics-box" id="lyrics-demo">
+              <div class="lyric-row" data-line="0">
+                <span>I've been staring at the edge of the water</span>
+                <span class="lyric-tag">Alt + Click</span>
+              </div>
+              <div class="lyric-row active" data-line="1">
+                <span>Long as I can remember, never really knowing why</span>
+                <span class="lyric-tag">Alt + Click</span>
+              </div>
+              <div class="lyric-row" data-line="2">
+                <span>I wish I could be the perfect daughter</span>
+                <span class="lyric-tag">Alt + Click</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Pillar 2 -->
-          <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-              </svg>
-            </div>
+          <!-- Pillar 2: SponsorBlock -->
+          <div class="pillar-card">
             <div>
-              <h3 class="feature-title">Virtual Windowing</h3>
-              <p class="feature-desc">
-                Scroll through massive 3,000+ track playlists at 120 FPS. Only ~35 DOM rows exist in memory at any millisecond.
+              <div class="pillar-header">
+                <span class="pillar-num">02 / SMART FILTERING</span>
+                <div class="pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="pillar-title">Built-In SponsorBlock</h3>
+              <p class="pillar-desc">
+                Automatically detects and skips music video intros, outros, sponsor mentions, and silent gaps. Experience uninterrupted music flow without touching your mouse.
               </p>
             </div>
-            <span class="feature-badge">120 FPS · 0ms Stutter</span>
+
+            <!-- Interactive Demo Inside Card -->
+            <div class="sponsor-timeline-box">
+              <div class="sponsor-badge-row">
+                <span>TRACK TIMELINE: 03:42</span>
+                <span class="sponsor-tag">AUTO-SKIPPED: 0:45 – 1:15</span>
+              </div>
+              <div class="sponsor-bar-track">
+                <div class="sponsor-segment-fill" title="Sponsor Segment"></div>
+                <div class="sponsor-playhead"></div>
+              </div>
+              <div class="sponsor-badge-row">
+                <span style="color: #666;">Intro (Skipped)</span>
+                <span style="color: #22c55e;">Sponsor Segment (Auto-Bypassed)</span>
+                <span style="color: #666;">Outro</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Pillar 3 -->
-          <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                <line x1="12" y1="19" x2="12" y2="23"></line>
-              </svg>
-            </div>
+          <!-- Pillar 3: Audio Pipeline & DSP -->
+          <div class="pillar-card">
             <div>
-              <h3 class="feature-title">Interactive Synced Lyrics</h3>
-              <p class="feature-desc">
-                Sub-millisecond synced karaoke lyrics with auto-scroll. If timing drifts, press <code>Alt + Click</code> on any line to instantly calibrate offset in real-time.
+              <div class="pillar-header">
+                <span class="pillar-num">03 / DSP ENGINE</span>
+                <div class="pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" y1="21" x2="4" y2="14"></line>
+                    <line x1="4" y1="10" x2="4" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12" y2="3"></line>
+                    <line x1="20" y1="21" x2="20" y2="16"></line>
+                    <line x1="20" y1="12" x2="20" y2="3"></line>
+                    <line x1="1" y1="14" x2="7" y2="14"></line>
+                    <line x1="9" y1="8" x2="15" y2="8"></line>
+                    <line x1="17" y1="16" x2="23" y2="16"></line>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="pillar-title">Direct WASAPI &amp; Parametric EQ</h3>
+              <p class="pillar-desc">
+                Dual-slot gapless audio engine with configurable 0–12s hardware crossfade. Direct WASAPI 24-bit output, 3-band parametric equalizer, and real-time pitch-preserving speed regulation (0.5x – 2.0x).
               </p>
             </div>
-            <span class="feature-badge">LRCLIB · 1-Click Calibration</span>
+
+            <!-- Demo Graphic Inside Card -->
+            <div class="dsp-curve-box">
+              <div class="dsp-eq-knobs">
+                <div class="dsp-knob-col">
+                  <div class="dsp-knob-name">Low Shelf</div>
+                  <div class="dsp-knob-val">+3.5 dB</div>
+                  <div style="font-size: 0.65rem; color: #555; margin-top: 4px; font-family: var(--font-mono);">100 Hz</div>
+                </div>
+                <div class="dsp-knob-col">
+                  <div class="dsp-knob-name">Mid Peak</div>
+                  <div class="dsp-knob-val">+1.0 dB</div>
+                  <div style="font-size: 0.65rem; color: #555; margin-top: 4px; font-family: var(--font-mono);">1.0 kHz</div>
+                </div>
+                <div class="dsp-knob-col">
+                  <div class="dsp-knob-name">High Shelf</div>
+                  <div class="dsp-knob-val">+2.0 dB</div>
+                  <div style="font-size: 0.65rem; color: #555; margin-top: 4px; font-family: var(--font-mono);">8.0 kHz</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Pillar 4 -->
-          <div class="feature-card card-wide">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                <line x1="6" y1="18" x2="6.01" y2="18"></line>
-              </svg>
-            </div>
+          <!-- Pillar 4: Massive Virtualization -->
+          <div class="pillar-card">
             <div>
-              <h3 class="feature-title">Built-In Plugin Ecosystem</h3>
-              <p class="feature-desc">
-                Includes SponsorBlock to automatically skip music video intros, outros, and speech. Real-time Last.fm scrobbler, Discord Rich Presence displaying current album art, and native Windows notifications.
+              <div class="pillar-header">
+                <span class="pillar-num">04 / OPTIMIZATION</span>
+                <div class="pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="pillar-title">Massive Playlist Virtualization</h3>
+              <p class="pillar-desc">
+                Scroll through 3,000+ song libraries at a solid 120 FPS. Only the visible window (~35 DOM rows) is ever mounted into memory, eliminating lag, memory bloat, and layout thrashing.
               </p>
             </div>
-            <span class="feature-badge">SponsorBlock · Last.fm · Discord RPC</span>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- App Showcase Mockup -->
-    <section class="section" id="preview">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="section-tag">Visual Design</span>
-          <h2 class="section-title">Designed for darkness.</h2>
-          <p class="section-desc">
-            Pure OLED black #000000 theme with high-contrast typography and razor-sharp alignment.
-          </p>
-        </div>
-
-        <div class="preview-window-wrapper">
-          <div class="preview-titlebar">
-            <div class="window-dots">
-              <span class="window-dot" style="background: #ff5f56;"></span>
-              <span class="window-dot" style="background: #ffbd2e;"></span>
-              <span class="window-dot" style="background: #27c93f;"></span>
+            <!-- Demo Graphic Inside Card -->
+            <div class="virtual-metric-box">
+              <div>
+                <div class="v-item-val" style="color: #22c55e;">120 FPS</div>
+                <div class="v-item-label">Scroll Smoothness</div>
+              </div>
+              <div style="width: 1px; height: 32px; background: #222;"></div>
+              <div>
+                <div class="v-item-val">35 Rows</div>
+                <div class="v-item-label">Active DOM Nodes</div>
+              </div>
+              <div style="width: 1px; height: 32px; background: #222;"></div>
+              <div>
+                <div class="v-item-val">0 ms</div>
+                <div class="v-item-label">Input Latency</div>
+              </div>
             </div>
-            <div class="preview-titlebar-text">Onyx Music — Desktop Client</div>
           </div>
-          <img src="assets/preview.png" alt="Onyx Music Desktop Preview" class="preview-image" />
         </div>
       </div>
     </section>
@@ -406,47 +418,47 @@
     <section class="section" id="download">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-tag">Get Started</span>
+          <span class="section-label">Get Started</span>
           <h2 class="section-title">Download Onyx Music v0.2.0</h2>
           <p class="section-desc">
-            Free, open-source, and privacy-respecting. Pick the package that suits your workflow.
+            Free, open-source, and privacy-respecting. Pick the package that best fits your setup.
           </p>
         </div>
 
-        <div class="download-grid">
+        <div class="download-deck">
           <!-- Setup Installer -->
-          <div class="download-card popular">
-            <span class="download-ribbon">Recommended</span>
+          <div class="download-box highlight">
+            <span class="box-ribbon">Recommended</span>
             <div>
-              <div class="download-icon" style="background: rgba(255, 34, 82, 0.12); color: var(--accent-red);">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <div class="box-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                   <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                   <line x1="12" y1="22.08" x2="12" y2="12"></line>
                 </svg>
               </div>
-              <h3 class="download-card-title">Windows Installer</h3>
-              <div class="download-card-meta">Onyx-Setup.exe · 2.1 MB · 64-bit</div>
-              <ul class="download-features-list">
+              <h3 class="box-title">Windows Installer</h3>
+              <div class="box-meta">Onyx-Setup.exe · 2.1 MB · 64-bit</div>
+              <ul class="box-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Windows Start Menu & Desktop shortcuts</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Windows Start Menu &amp; Desktop shortcuts</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Native Windows Search (Win + S) integration</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Windows Search (Win + S) integration</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Stable Launch on Startup support</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Persistent Launch on Startup option</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                   <span>Clean one-click uninstaller</span>
                 </li>
               </ul>
             </div>
-            <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Setup.exe" class="btn btn-accent">
+            <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Setup.exe" class="btn btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
@@ -457,32 +469,32 @@
           </div>
 
           <!-- Standalone Portable -->
-          <div class="download-card">
+          <div class="download-box">
             <div>
-              <div class="download-icon" style="background: rgba(36, 200, 216, 0.12); color: var(--accent-cyan);">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <div class="box-icon" style="background: rgba(255, 255, 255, 0.05); color: #fff;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                   <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                 </svg>
               </div>
-              <h3 class="download-card-title">Portable Binary</h3>
-              <div class="download-card-meta">Onyx-Music.exe · 6.5 MB · 64-bit</div>
-              <ul class="download-features-list">
+              <h3 class="box-title">Portable Binary</h3>
+              <div class="box-meta">Onyx-Music.exe · 6.5 MB · 64-bit</div>
+              <ul class="box-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                   <span>Zero installation required</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                   <span>Runs directly from USB or any folder</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                   <span>Leaves no registry footprint</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Ideal for testing & portable rigs</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Self-contained portable execution</span>
                 </li>
               </ul>
             </div>
@@ -503,10 +515,10 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <div class="footer-copy">
+      <div class="footer-brand">
         <div><b>Onyx Music</b> · Distributed under the MIT License.</div>
         <div style="margin-top: 4px; font-size: 0.78rem;">Independent open-source project, not affiliated with Google LLC or YouTube.</div>
-        <div style="margin-top: 4px; font-size: 0.78rem;">Engineered by <b><a href="https://github.com/MarianQQQ" target="_blank" style="color: var(--text-main); text-decoration: none;">MarianQQQ</a></b> &amp; <b>Google Gemini</b>.</div>
+        <div style="margin-top: 4px; font-size: 0.78rem;">Engineered by <b><a href="https://github.com/MarianQQQ" target="_blank">MarianQQQ</a></b> &amp; <b>Google Gemini</b>.</div>
       </div>
 
       <ul class="footer-links">
