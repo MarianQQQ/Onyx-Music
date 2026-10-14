@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://readme-typing-svg.demolab.com">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=17&duration=2400&pause=1000&color=FF2252&background=00000000&center=true&vCenter=true&width=580&lines=High-Performance+YouTube+Music+Desktop;Tauri+v2+%2B+Rust+2024+%2B+SolidJS;~48MB+UI+Process+%E2%80%A2+Zero+Electron+Bloat;Native+WASAPI+Audio+%2B+3-Band+DSP;Interactive+Synced+Lyrics+(Alt%2BClick);Built-in+SponsorBlock+%26+Last.fm+Scrobbler" alt="Typing Features" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=17&duration=2400&pause=1000&color=FF2252&background=00000000&center=true&vCenter=true&width=580&lines=High-Performance+YouTube+Music+Desktop;Tauri+v2+%2B+Rust+2024+%2B+SolidJS;~79MB+UI+Process+%E2%80%A2+Zero+Electron+Bloat;Native+WASAPI+Audio+%2B+3-Band+DSP;Interactive+Synced+Lyrics+(Alt%2BClick);Built-in+SponsorBlock+%26+Last.fm+Scrobbler" alt="Typing Features" />
   </a>
 </p>
 
@@ -17,6 +17,7 @@
 </p>
 
 <p align="center">
+  <a href="https://marianqqq.github.io/Onyx-Music/"><img src="https://img.shields.io/badge/Official_Website-marianqqq.github.io%2FOnyx--Music-ff2252.svg?style=for-the-badge&logo=googlechrome&logoColor=white&color=24040b&labelColor=000000" alt="Official Website" /></a>
   <a href="https://github.com/MarianQQQ/Onyx-Music/releases"><img src="https://img.shields.io/badge/version-v0.2.0-ff2252.svg?style=for-the-badge&logo=github&color=24040b&labelColor=000000" alt="Version" /></a>
   <a href="https://tauri.app/"><img src="https://img.shields.io/badge/engine-Tauri_v2-24C8D8.svg?style=for-the-badge&logo=tauri&color=091f24&labelColor=000000" alt="Tauri v2" /></a>
   <a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/core-Rust_2024-DEA584.svg?style=for-the-badge&logo=rust&color=2b1408&labelColor=000000" alt="Rust 2024" /></a>
@@ -80,14 +81,17 @@ Onyx combines the best ideas from two open-source projects:
 
 ## 🚀 Performance Benchmarks (Real Telemetry)
 
-| Metric | Electron Wrappers | **Onyx Music (Measured)** |
+> **Test Conditions**: Measured on 64-bit Windows 11 during steady-state background stream playback (volume 70%, 1080p display scale). Comparison figures reflect typical observed ranges for heavier web-based desktop players (approximate).
+
+| Metric | Heavier Web-Based Players *(Approx.)* | **Onyx Music (Verified)** |
 | :--- | :---: | :---: |
-| **App UI Process RAM** | ~450 – 700 MB | **~48.5 MB** |
-| **Total Memory (with GPU & Sandbox)** | ~650 – 900+ MB | **~211 MB** |
-| **Playback CPU Load** | 3.5% – 6.0% | **~1.5% – 1.9%** |
+| **App UI Process RAM** | ~450 – 700 MB | **~79.9 MB** |
+| **Total Memory (All 7 WebView2 & Rust processes)** | ~650 – 900+ MB | **~237.8 MB** |
+| **Dedicated Audio Service** | Included in main bloat | **~3.4 MB** |
+| **Playback CPU Load** | 3.5% – 6.0% | **~0.1%** |
 | **Idle CPU Load** | 1.0% – 2.5% | **0.0%** |
 | **Cold Startup Time** | ~4.0s – 5.5s | **< 0.8s** |
-| **Binary Bundle Size** | ~180 MB | **~6 MB** |
+| **Binary Bundle Size** | ~180 – 220 MB | **~2.1 MB (Setup) / ~6.5 MB (Portable)** |
 
 <p align="center">
   <img src="divider.svg" width="100%" alt="AMOLED Divider" />
@@ -96,13 +100,13 @@ Onyx combines the best ideas from two open-source projects:
 ## ✨ Highlights & Features
 
 - 🎛️ **Native Audio Pipeline & DSP**: Direct WASAPI stream, 3-band parametric EQ (Low-Shelf, Mid, High-Shelf), and dual-slot gapless A/B crossfade.
-- ⚡ **Massive Virtualization**: Smooth 60 FPS scrolling through 3,000+ tracks with constant low memory usage and zero DOM stutter.
+- ⚡ **Massive Virtualization**: Smooth scrolling through 3,000+ tracks with constant low memory usage and ~35 mounted DOM rows.
 - 🔀 **Contextual Playback & Smart Queue**: Isolated manual queue that never breaks your album/liked flow; true Fisher-Yates shuffle across your entire library.
-- 🎤 **Interactive Synced Lyrics**: Sub-millisecond LRCLIB integration, click-to-seek, and 1-click `Alt + Click` real-time sync calibration.
-- 🔌 **Built-in Plugin Ecosystem**: Built-in SponsorBlock (skips video sponsor segments & intros), Last.fm scrobbler, Discord Rich Presence, and native toast alerts.
+- 🎤 **Interactive Synced Lyrics**: Centisecond-accurate LRCLIB integration, click-to-seek, and 1-click `Alt + Click` real-time sync calibration.
+- 🔌 **Built-in Plugin Ecosystem**: Built-in SponsorBlock (skips community-flagged non-music segments & intros), Last.fm scrobbler, Discord Rich Presence, and native toast alerts.
 - ⌨️ **Global Hotkeys & Media Controls**: Control playback, skip tracks, and fine-tune volume from anywhere in Windows even when gaming or minimized.
 - 🛡️ **AI & Spam Filter**: $O(1)$ heuristic regex scanner filters AI voice clones, fake tracks, and automated remix re-uploads.
-- 🔐 **Privacy-First Local Auth**: Credentials stay strictly on your device; direct communication with YouTube InnerTube endpoints.
+- 🔐 **Privacy-First Local Auth**: Credentials stay strictly on your device in `%LOCALAPPDATA%`; direct communication with YouTube InnerTube endpoints.
 
 <p align="center">
   <img src="divider.svg" width="100%" alt="AMOLED Divider" />
@@ -126,6 +130,18 @@ pnpm tauri build
 </details>
 
 <br>
+
+## 📋 Requirements & Technical Notes
+
+* **Operating System**: 64-bit Windows 10 (Version 1809+) or Windows 11.
+* **WebView2 Runtime**: Relies on the Microsoft Edge WebView2 Evergreen runtime (pre-installed on modern Windows 10 & 11).
+* **SmartScreen Notice**: Onyx is an open-source project without a paid corporate EV certificate. Windows Defender SmartScreen may display an *"Unknown Publisher"* warning on first launch. Click **"More info"** &rarr; **"Run anyway"**.
+* **Storage & Privacy**: Session tokens and cached audio streams are saved strictly on your local machine in `%LOCALAPPDATA%`.
+* **Last.fm Plugin**: Uses your own free personal API keys created at [last.fm/api](https://www.last.fm/api/account/create).
+
+<p align="center">
+  <img src="divider.svg" width="100%" alt="AMOLED Divider" />
+</p>
 
 ## ⚠️ Known Issues
 
