@@ -174,13 +174,20 @@ function initDropdownToggle() {
 
   arrowBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isVisible = dropdown.style.display === 'block';
-    dropdown.style.display = isVisible ? 'none' : 'block';
+    const isOpen = dropdown.classList.contains('is-open');
+    if (isOpen) {
+      dropdown.classList.remove('is-open');
+      splitBtn.classList.remove('open');
+    } else {
+      dropdown.classList.add('is-open');
+      splitBtn.classList.add('open');
+    }
   });
 
   document.addEventListener('click', (e) => {
     if (!splitBtn.contains(e.target)) {
-      dropdown.style.display = 'none';
+      dropdown.classList.remove('is-open');
+      splitBtn.classList.remove('open');
     }
   });
 }

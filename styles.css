@@ -396,6 +396,8 @@ body {
   gap: 8px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   transition: background 0.15s ease;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .split-btn-main:hover {
@@ -409,10 +411,20 @@ body {
   display: flex;
   align-items: center;
   transition: background 0.15s ease;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 .split-btn-arrow:hover {
   background: var(--accent-red-hover);
+}
+
+.split-btn-arrow svg {
+  transition: transform 0.2s ease;
+}
+
+.download-split-btn.open .split-btn-arrow svg {
+  transform: rotate(180deg);
 }
 
 .hero-dropdown {
@@ -432,7 +444,7 @@ body {
   text-align: left;
 }
 
-.download-split-btn:hover .hero-dropdown {
+.hero-dropdown.is-open {
   display: block;
 }
 
