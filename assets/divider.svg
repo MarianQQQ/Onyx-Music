@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 4" fill="none">
+  <defs>
+    <linearGradient id="neonPulseRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#050508" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#660a1a" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#ff2244" stop-opacity="1"/>
+      <stop offset="80%" stop-color="#660a1a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#050508" stop-opacity="0"/>
+      <animate attributeName="x1" from="-100%" to="100%" dur="3.5s" repeatCount="indefinite" />
+      <animate attributeName="x2" from="0%" to="200%" dur="3.5s" repeatCount="indefinite" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="2.5" y="0.75" fill="url(#neonPulseRed)" rx="1.25"/>
+</svg>
