@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // 1. Master Hardware Window 3D Perspective Tilt
 // --------------------------------------------------------
 function initHeroTilt() {
+  if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768) {
+    return;
+  }
+
   const windowEl = document.querySelector('.showcase-window');
   if (!windowEl) return;
 
