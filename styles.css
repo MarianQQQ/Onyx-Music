@@ -28,6 +28,16 @@
   -webkit-font-smoothing: antialiased;
 }
 
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-oled);
@@ -376,50 +386,73 @@ body {
 }
 
 .download-split-btn {
-  display: flex;
-  align-items: center;
+  display: inline-flex;
+  align-items: stretch;
   background: var(--accent-red);
   border-radius: 6px;
   box-shadow: 0 0 24px var(--accent-red-glow);
   position: relative;
   z-index: 40;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.download-split-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 36px rgba(255, 34, 34, 0.6);
 }
 
 .split-btn-main {
   padding: 11px 20px;
-  color: #fff;
+  color: #ffffff;
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
   transition: background 0.15s ease;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  white-space: nowrap;
 }
 
 .split-btn-main:hover {
-  background: var(--accent-red-hover);
+  background: rgba(0, 0, 0, 0.14);
 }
 
 .split-btn-arrow {
-  padding: 11px 12px;
-  color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0 14px;
+  color: #ffffff;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   transition: background 0.15s ease;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 0;
+  align-self: stretch;
 }
 
-.split-btn-arrow:hover {
-  background: var(--accent-red-hover);
+.split-btn-arrow:hover,
+.download-split-btn.open .split-btn-arrow {
+  background: rgba(0, 0, 0, 0.22);
 }
 
 .split-btn-arrow svg {
+  display: block;
+  stroke: #ffffff;
   transition: transform 0.2s ease;
 }
 
