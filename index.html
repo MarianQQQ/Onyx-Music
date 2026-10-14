@@ -64,12 +64,17 @@
       <div class="wrap">
         <div class="hero-header-box reveal visible">
           <div class="hero-meta-pill">
-            <span class="live-indicator"></span>
+            <span class="pill-border-beam" aria-hidden="true"></span>
+            <div class="pill-eq-bars" aria-hidden="true">
+              <span class="p-bar"></span>
+              <span class="p-bar"></span>
+              <span class="p-bar"></span>
+            </div>
             <span>ONYX 0.2.0 · NATIVE YOUTUBE MUSIC DESKTOP</span>
           </div>
 
           <h1 class="hero-title">
-            Pure sound.<br />
+            <span class="title-shimmer">Pure sound.</span><br />
             <span class="title-faded">Zero bloat.</span><br />
             <span class="title-accent">Done right.</span>
           </h1>
@@ -77,6 +82,15 @@
           <p class="hero-lede">
             Engineered with Tauri v2, Rust 2024, and SolidJS. A true OLED dark aesthetic with an ultra-lean runtime, direct WASAPI audio pipeline, interactive synced lyrics, and built-in SponsorBlock.
           </p>
+
+          <!-- Interactive Studio Oscilloscope Ribbon -->
+          <div class="hero-waveform-container" title="Interactive WASAPI Audio Stream (Move cursor to modulate)">
+            <canvas id="hero-waveform" class="hero-waveform-canvas"></canvas>
+            <div class="waveform-meta">
+              <span><span class="waveform-live-dot"></span>DIRECT WASAPI STREAM · 48 kHz / 24-BIT</span>
+              <span>HARDWARE PCM BUFFER · 0.1% CPU</span>
+            </div>
+          </div>
 
           <div class="hero-actions">
             <div class="download-split-btn">

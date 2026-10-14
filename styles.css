@@ -264,32 +264,69 @@ body {
 .hero-meta-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
+  gap: 10px;
+  padding: 6px 18px;
   border-radius: 100px;
-  background: rgba(255, 34, 34, 0.06);
-  border: 1px solid rgba(255, 34, 34, 0.22);
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(255, 34, 34, 0.3);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--accent-red);
   margin-bottom: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 34, 34, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.live-indicator {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.hero-meta-pill:hover {
+  border-color: rgba(255, 34, 34, 0.6);
+  box-shadow: 0 0 30px rgba(255, 34, 34, 0.25);
+}
+
+.pill-border-beam {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from 0deg, transparent 65%, rgba(255, 34, 34, 0.8) 88%, #ffffff 96%, transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: rotateBeam 4s linear infinite;
+}
+
+@keyframes rotateBeam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pill-eq-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+}
+
+.p-bar {
+  width: 2px;
   background: var(--accent-red);
-  box-shadow: 0 0 8px var(--accent-red);
-  animation: radarPulse 2s infinite ease-in-out;
+  border-radius: 1px;
+  animation: pBarBounce 1.2s ease-in-out infinite alternate;
 }
 
-@keyframes radarPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(0.8); }
+.p-bar:nth-child(1) { height: 40%; animation-delay: 0.1s; }
+.p-bar:nth-child(2) { height: 100%; animation-delay: 0.35s; }
+.p-bar:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+
+@keyframes pBarBounce {
+  0% { height: 20%; }
+  100% { height: 100%; }
 }
 
 .hero-title {
@@ -301,20 +338,90 @@ body {
   margin-bottom: 22px;
 }
 
+.title-shimmer {
+  background: linear-gradient(110deg, #ffffff 35%, rgba(255, 255, 255, 0.65) 50%, #ffffff 65%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleShimmer 7s infinite ease-in-out;
+}
+
+@keyframes titleShimmer {
+  0%, 100% { background-position: 150% 0; }
+  50% { background-position: -50% 0; }
+}
+
 .hero-title .title-faded {
   color: var(--text-secondary);
 }
 
 .hero-title .title-accent {
   color: var(--accent-red);
+  text-shadow: 0 0 35px rgba(255, 34, 34, 0.5), 0 0 70px rgba(255, 34, 34, 0.25);
+  animation: accentPulse 3.5s infinite ease-in-out alternate;
+}
+
+@keyframes accentPulse {
+  0% { text-shadow: 0 0 25px rgba(255, 34, 34, 0.35), 0 0 50px rgba(255, 34, 34, 0.15); }
+  100% { text-shadow: 0 0 45px rgba(255, 34, 34, 0.7), 0 0 90px rgba(255, 34, 34, 0.35); }
 }
 
 .hero-lede {
   font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.65;
-  margin: 0 auto 34px auto;
+  margin: 0 auto 28px auto;
   max-width: 620px;
+}
+
+/* Interactive Hardware Waveform Oscilloscope */
+.hero-waveform-container {
+  max-width: 620px;
+  margin: 0 auto 32px auto;
+  background: rgba(5, 5, 5, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 10px 14px 8px 14px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 34, 34, 0.05);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-waveform-container:hover {
+  border-color: rgba(255, 34, 34, 0.35);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 34, 34, 0.12);
+}
+
+.hero-waveform-canvas {
+  width: 100%;
+  height: 52px;
+  display: block;
+  cursor: crosshair;
+}
+
+.waveform-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+.waveform-live-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  box-shadow: 0 0 6px var(--accent-red);
+  margin-right: 5px;
+  animation: radarPulse 1.8s infinite ease-in-out;
 }
 
 .hero-actions {
