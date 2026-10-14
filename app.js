@@ -4,13 +4,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeroTilt();
+  initSpotlightCards();
+  initScrollReveal();
   initLyricsInteractiveDemo();
   initDropdownToggle();
-  initHardwareAudioMeter();
+  initSponsorBlockSync();
 });
 
 // --------------------------------------------------------
-// 1. Master Hardware Window 3D Perspective Tilt & Spotlight
+// 1. Master Hardware Window 3D Perspective Tilt
 // --------------------------------------------------------
 function initHeroTilt() {
   const windowEl = document.querySelector('.showcase-window');
@@ -37,9 +39,9 @@ function initHeroTilt() {
     const xPct = mouseX / bounds.width - 0.5; // -0.5 to 0.5
     const yPct = mouseY / bounds.height - 0.5;
 
-    // Ultra-subtle tilt: max 2.5 degrees for premium weight
-    const tiltX = -yPct * 4;
-    const tiltY = xPct * 4;
+    // Smooth subtle tilt
+    const tiltX = -yPct * 3.5;
+    const tiltY = xPct * 3.5;
 
     windowEl.style.transform = `perspective(1200px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-2px)`;
   });
@@ -50,7 +52,53 @@ function initHeroTilt() {
 }
 
 // --------------------------------------------------------
-// 2. Interactive Synced Lyrics Demo with Alt + Click Sim
+// 2. Cursor Spotlight Tracker for Cards (Linear / Raycast Style)
+// --------------------------------------------------------
+function initSpotlightCards() {
+  const cards = document.querySelectorAll('.spotlight-card');
+  if (cards.length === 0) return;
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+// --------------------------------------------------------
+// 3. Scroll Reveal Animations (IntersectionObserver)
+// --------------------------------------------------------
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length === 0) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach((el) => observer.observe(el));
+  } else {
+    // Fallback for older browsers
+    reveals.forEach((el) => el.classList.add('visible'));
+  }
+}
+
+// --------------------------------------------------------
+// 4. Interactive Synced Lyrics Demo with Alt + Click Sim
 // --------------------------------------------------------
 function initLyricsInteractiveDemo() {
   const lyricsContainer = document.getElementById('lyrics-demo');
@@ -117,7 +165,7 @@ function initLyricsInteractiveDemo() {
 }
 
 // --------------------------------------------------------
-// 3. Dropdown Menu Toggle
+// 5. Dropdown Menu Toggle
 // --------------------------------------------------------
 function initDropdownToggle() {
   const arrowBtn = document.querySelector('.split-btn-arrow');
@@ -140,16 +188,21 @@ function initDropdownToggle() {
 }
 
 // --------------------------------------------------------
-// 4. Subtle Hardware Audio Meter Randomized Modulation
+// 6. SponsorBlock Flash Notification on Skip
 // --------------------------------------------------------
-function initHardwareAudioMeter() {
-  const meterBars = document.querySelectorAll('.meter-bar');
-  if (meterBars.length === 0) return;
+function initSponsorBlockSync() {
+  const sponsorTag = document.getElementById('sponsor-tag');
+  if (!sponsorTag) return;
 
+  // The CSS animation runs on a 6-second cycle, and skips around 28% (~1.68s)
   setInterval(() => {
-    meterBars.forEach((bar) => {
-      const heightPct = Math.floor(Math.random() * 75) + 25;
-      bar.style.height = `${heightPct}%`;
-    });
-  }, 180);
+    setTimeout(() => {
+      sponsorTag.style.boxShadow = '0 0 14px rgba(34, 197, 94, 0.6)';
+      sponsorTag.style.borderColor = '#22c55e';
+      setTimeout(() => {
+        sponsorTag.style.boxShadow = '';
+        sponsorTag.style.borderColor = '';
+      }, 700);
+    }, 1680);
+  }, 6000);
 }

@@ -27,6 +27,7 @@
   <!-- Ambient Atmosphere -->
   <div class="hero-ambient-spot" aria-hidden="true"></div>
   <div class="subtle-grid" aria-hidden="true"></div>
+  <div class="ambient-scanner-beam" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="site-header">
@@ -61,7 +62,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="wrap">
-        <div class="hero-header-box">
+        <div class="hero-header-box reveal visible">
           <div class="hero-meta-pill">
             <span class="live-indicator"></span>
             <span>ONYX 0.2.0 · NATIVE YOUTUBE MUSIC DESKTOP</span>
@@ -111,51 +112,11 @@
               </svg>
             </a>
           </div>
-
-          <div class="telemetry-strip">
-            <div class="telemetry-item">
-              <span>UI Memory:</span>
-              <b>79.9 MB</b>
-            </div>
-            <span class="telemetry-sep">·</span>
-            <div class="telemetry-item">
-              <span>Calm Playback CPU:</span>
-              <b>0.1%</b>
-            </div>
-            <span class="telemetry-sep">·</span>
-            <div class="telemetry-item">
-              <span>Total Runtime Tree:</span>
-              <b>237 MB</b>
-            </div>
-            <span class="telemetry-sep">·</span>
-            <div class="telemetry-item">
-              <span>Cold Startup:</span>
-              <b>&lt; 0.8s</b>
-            </div>
-          </div>
         </div>
 
         <!-- Master Hardware Window Mockup Centerpiece -->
-        <div class="showcase-stage">
+        <div class="showcase-stage reveal visible">
           <div class="showcase-window">
-            <div class="window-hud">
-              <div class="window-dots">
-                <span class="dot" style="background: #ff5f56;"></span>
-                <span class="dot" style="background: #ffbd2e;"></span>
-                <span class="dot" style="background: #27c93f;"></span>
-              </div>
-              <div class="window-status-pill">
-                <div class="audio-meter" title="WASAPI Audio Stream Active">
-                  <span class="meter-bar"></span>
-                  <span class="meter-bar"></span>
-                  <span class="meter-bar"></span>
-                  <span class="meter-bar"></span>
-                  <span class="meter-bar"></span>
-                </div>
-                <span>DIRECT WASAPI STREAM · 48 kHz / 24-BIT</span>
-              </div>
-              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #666;">0.1% CPU</div>
-            </div>
             <img src="assets/preview.png" alt="Onyx Music Desktop Client Interface" class="window-screenshot" />
           </div>
         </div>
@@ -163,7 +124,7 @@
     </section>
 
     <!-- Telemetry Benchmarks -->
-    <section class="section" id="benchmarks">
+    <section class="section reveal" id="benchmarks">
       <div class="wrap">
         <div class="section-head">
           <span class="section-label">Real Telemetry</span>
@@ -173,7 +134,7 @@
           </p>
         </div>
 
-        <div class="benchmark-card">
+        <div class="benchmark-card spotlight-card">
           <table class="benchmark-table">
             <thead>
               <tr>
@@ -246,7 +207,7 @@
     </section>
 
     <!-- The Four Pillars of Onyx -->
-    <section class="section" id="features">
+    <section class="section reveal" id="features">
       <div class="wrap">
         <div class="section-head">
           <span class="section-label">Architecture</span>
@@ -258,7 +219,7 @@
 
         <div class="pillars-grid">
           <!-- Pillar 1: Synced Lyrics -->
-          <div class="pillar-card">
+          <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
                 <span class="pillar-num">01 / KARAOKE ENGINE</span>
@@ -294,7 +255,7 @@
           </div>
 
           <!-- Pillar 2: SponsorBlock -->
-          <div class="pillar-card">
+          <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
                 <span class="pillar-num">02 / SMART FILTERING</span>
@@ -314,14 +275,14 @@
             <div class="sponsor-timeline-box">
               <div class="sponsor-badge-row">
                 <span>TRACK TIMELINE: 03:42</span>
-                <span class="sponsor-tag">AUTO-SKIPPED: 0:45 – 1:15</span>
+                <span class="sponsor-tag" id="sponsor-tag">AUTO-SKIPPED: 0:45 – 1:15</span>
               </div>
               <div class="sponsor-bar-track">
                 <div class="sponsor-segment-fill" title="Sponsor Segment"></div>
                 <div class="sponsor-playhead"></div>
               </div>
               <div class="sponsor-badge-row">
-                <span style="color: #666;">Intro (Skipped)</span>
+                <span style="color: #666;">Intro</span>
                 <span style="color: #22c55e;">Sponsor Segment (Auto-Bypassed)</span>
                 <span style="color: #666;">Outro</span>
               </div>
@@ -329,7 +290,7 @@
           </div>
 
           <!-- Pillar 3: Audio Pipeline & DSP -->
-          <div class="pillar-card">
+          <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
                 <span class="pillar-num">03 / DSP ENGINE</span>
@@ -358,25 +319,34 @@
               <div class="dsp-eq-knobs">
                 <div class="dsp-knob-col">
                   <div class="dsp-knob-name">Low Shelf</div>
+                  <div class="dsp-vu-meter">
+                    <div class="dsp-vu-bar bar-bass"></div>
+                  </div>
                   <div class="dsp-knob-val">+3.5 dB</div>
-                  <div style="font-size: 0.65rem; color: #555; margin-top: 4px; font-family: var(--font-mono);">100 Hz</div>
+                  <div class="dsp-freq-tag">100 Hz</div>
                 </div>
                 <div class="dsp-knob-col">
                   <div class="dsp-knob-name">Mid Peak</div>
+                  <div class="dsp-vu-meter">
+                    <div class="dsp-vu-bar bar-mid"></div>
+                  </div>
                   <div class="dsp-knob-val">+1.0 dB</div>
-                  <div style="font-size: 0.65rem; color: #555; margin-top: 4px; font-family: var(--font-mono);">1.0 kHz</div>
+                  <div class="dsp-freq-tag">1.0 kHz</div>
                 </div>
                 <div class="dsp-knob-col">
                   <div class="dsp-knob-name">High Shelf</div>
+                  <div class="dsp-vu-meter">
+                    <div class="dsp-vu-bar bar-treble"></div>
+                  </div>
                   <div class="dsp-knob-val">+2.0 dB</div>
-                  <div style="font-size: 0.65rem; color: #555; margin-top: 4px; font-family: var(--font-mono);">8.0 kHz</div>
+                  <div class="dsp-freq-tag">8.0 kHz</div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Pillar 4: Massive Virtualization -->
-          <div class="pillar-card">
+          <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
                 <span class="pillar-num">04 / OPTIMIZATION</span>
@@ -415,7 +385,7 @@
     </section>
 
     <!-- Download Center -->
-    <section class="section" id="download">
+    <section class="section reveal" id="download">
       <div class="wrap">
         <div class="section-head">
           <span class="section-label">Get Started</span>
@@ -427,7 +397,7 @@
 
         <div class="download-deck">
           <!-- Setup Installer -->
-          <div class="download-box highlight">
+          <div class="download-box highlight spotlight-card">
             <span class="box-ribbon">Recommended</span>
             <div>
               <div class="box-icon">
@@ -469,7 +439,7 @@
           </div>
 
           <!-- Standalone Portable -->
-          <div class="download-box">
+          <div class="download-box spotlight-card">
             <div>
               <div class="box-icon" style="background: rgba(255, 255, 255, 0.05); color: #fff;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
