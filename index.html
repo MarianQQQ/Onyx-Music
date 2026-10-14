@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Onyx Music — High-Performance YouTube Music Desktop Client</title>
-  <meta name="description" content="Onyx Music: Built with Tauri v2, Rust 2024, and SolidJS. Ultra-lean ~79MB UI footprint, direct WASAPI audio pipeline, interactive synced lyrics, and built-in SponsorBlock." />
+  <meta name="description" content="Onyx Music: Built with Tauri v2, Rust 2024, and SolidJS. Ultra-lean 79.9MB UI footprint, direct WASAPI audio pipeline, interactive synced lyrics, and built-in SponsorBlock." />
   <meta name="keywords" content="YouTube Music Desktop, Tauri v2, Rust, SolidJS, lightweight music player, SponsorBlock, synced lyrics, DSP equalizer" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icon-128.png" />
   
-  <!-- Open Graph / Social Meta -->
+  <!-- Open Graph / Social Meta (Absolute URLs for Discord, Telegram & Social Previews) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Onyx Music — High-Performance YouTube Music Desktop Client" />
-  <meta property="og:description" content="Pure sound. Zero bloat. Direct WASAPI audio pipeline, ~79MB UI RAM, 3,000+ track virtualization, and built-in SponsorBlock." />
-  <meta property="og:image" content="assets/preview.png" />
+  <meta property="og:description" content="Pure sound. Zero bloat. Direct WASAPI audio pipeline, 79.9MB UI RAM, 3,000+ track virtualization, and built-in SponsorBlock." />
+  <meta property="og:image" content="https://marianqqq.github.io/Onyx-Music/assets/preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Onyx Music — High-Performance YouTube Music Desktop Client" />
   <meta name="twitter:description" content="Pure sound. Zero bloat. The YouTube Music desktop client done right." />
-  <meta name="twitter:image" content="assets/preview.png" />
+  <meta name="twitter:image" content="https://marianqqq.github.io/Onyx-Music/assets/preview.png" />
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
@@ -41,6 +41,7 @@
         <ul class="nav-links">
           <li><a href="#benchmarks">Telemetry</a></li>
           <li><a href="#features">Architecture</a></li>
+          <li><a href="#requirements">Notes</a></li>
           <li><a href="#download">Download</a></li>
         </ul>
       </nav>
@@ -92,19 +93,19 @@
                 </svg>
                 <span>Download for Windows (2.1 MB)</span>
               </a>
-              <div class="split-btn-arrow" title="Choose package">
+              <button type="button" class="split-btn-arrow" aria-label="Toggle download options">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
-              </div>
+              </button>
               <div class="hero-dropdown">
                 <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Setup.exe" class="hero-drop-item">
                   <div class="hero-drop-title">Windows Setup Installer (2.1 MB)</div>
-                  <div class="hero-drop-sub">Recommended · Start menu shortcuts &amp; auto-update</div>
+                  <div class="hero-drop-sub">Recommended · Start menu shortcuts &amp; clean uninstaller</div>
                 </a>
                 <a href="https://github.com/MarianQQQ/Onyx-Music/releases/latest/download/Onyx-Music.exe" class="hero-drop-item">
                   <div class="hero-drop-title">Portable Binary (6.5 MB)</div>
-                  <div class="hero-drop-sub">Zero install · Runs anywhere from USB</div>
+                  <div class="hero-drop-sub">Zero install · Runs anywhere from USB or folder</div>
                 </a>
               </div>
             </div>
@@ -134,7 +135,7 @@
           <span class="section-label">Real Telemetry</span>
           <h2 class="section-title">Engineered for speed, not bloat.</h2>
           <p class="section-desc">
-            Direct measurements captured from Windows 11 Task Manager during active playback. Zero marketing fluff.
+            Direct measurements captured on Windows 11 (64-bit) during calm steady-state audio playback. Values for web-based alternatives represent typical observed memory ranges.
           </p>
         </div>
 
@@ -143,7 +144,7 @@
             <thead>
               <tr>
                 <th>System Metric</th>
-                <th>Electron Clones (Spotify / Chrome)</th>
+                <th>Heavier Web-Based Players (Estimated)</th>
                 <th class="col-onyx">Onyx Music v0.2.0 (Measured)</th>
               </tr>
             </thead>
@@ -167,7 +168,7 @@
               <tr>
                 <td>
                   <span class="metric-title">Active Playback CPU Load</span>
-                  <span class="metric-sub">Processor utilization during steady-state music streaming</span>
+                  <span class="metric-sub">Processor utilization during steady-state background playback</span>
                 </td>
                 <td class="tag-red">2.5% – 6.0%</td>
                 <td class="col-onyx tag-green">0.1% (Near-zero drain)</td>
@@ -183,7 +184,7 @@
               <tr>
                 <td>
                   <span class="metric-title">Cold Startup Latency</span>
-                  <span class="metric-sub">Time from click to fully interactive UI</span>
+                  <span class="metric-sub">Time from process launch to fully interactive UI</span>
                 </td>
                 <td class="tag-red">~4.0s – 5.5s</td>
                 <td class="col-onyx tag-green">&lt; 0.8s (Near-instant)</td>
@@ -237,22 +238,22 @@
               </div>
               <h3 class="pillar-title">Interactive Synced Lyrics</h3>
               <p class="pillar-desc">
-                Sub-millisecond karaoke synchronization with smooth viewport centering. If a song drifts out of sync, press <code>Alt + Click</code> on any lyric to recalibrate timing in real-time.
+                Centisecond-accurate karaoke lyrics (powered by LRCLIB) with smooth viewport centering. If timing drifts on any track, press <code>Alt + Click</code> on any line to recalibrate offset in real-time.
               </p>
             </div>
 
-            <!-- Interactive Demo Inside Card -->
+            <!-- Non-copyrighted original demonstration lines -->
             <div class="lyrics-box" id="lyrics-demo">
               <div class="lyric-row" data-line="0">
-                <span>I've been staring at the edge of the water</span>
+                <span>Synchronized lyrics float smoothly into view</span>
                 <span class="lyric-tag">Alt + Click</span>
               </div>
               <div class="lyric-row active" data-line="1">
-                <span>Long as I can remember, never really knowing why</span>
+                <span>Timed precisely with each passing vocal beat</span>
                 <span class="lyric-tag">Alt + Click</span>
               </div>
               <div class="lyric-row" data-line="2">
-                <span>I wish I could be the perfect daughter</span>
+                <span>Press Alt + Click on any line to recalibrate offset</span>
                 <span class="lyric-tag">Alt + Click</span>
               </div>
             </div>
@@ -271,7 +272,7 @@
               </div>
               <h3 class="pillar-title">Built-In SponsorBlock</h3>
               <p class="pillar-desc">
-                Automatically detects and skips music video intros, outros, sponsor mentions, and silent gaps. Experience uninterrupted music flow without touching your mouse.
+                Community-driven segment skipping: seamlessly bypasses intros, outros, sponsor mentions, and silent gaps using the public SponsorBlock database. Uninterrupted music flow without touching your mouse.
               </p>
             </div>
 
@@ -362,15 +363,15 @@
               </div>
               <h3 class="pillar-title">Massive Playlist Virtualization</h3>
               <p class="pillar-desc">
-                Scroll through 3,000+ song libraries at a solid 120 FPS. Only the visible window (~35 DOM rows) is ever mounted into memory, eliminating lag, memory bloat, and layout thrashing.
+                Scroll through 3,000+ song libraries with fluid responsiveness. Only the visible window (~35 DOM rows) is ever mounted into memory, eliminating lag, memory bloat, and layout thrashing.
               </p>
             </div>
 
             <!-- Demo Graphic Inside Card -->
             <div class="virtual-metric-box">
               <div>
-                <div class="v-item-val" style="color: #22c55e;">120 FPS</div>
-                <div class="v-item-label">Scroll Smoothness</div>
+                <div class="v-item-val" style="color: #22c55e;">60–120Hz</div>
+                <div class="v-item-label">Display Refresh Rate</div>
               </div>
               <div style="width: 1px; height: 32px; background: #222;"></div>
               <div>
@@ -379,10 +380,93 @@
               </div>
               <div style="width: 1px; height: 32px; background: #222;"></div>
               <div>
-                <div class="v-item-val">0 ms</div>
-                <div class="v-item-label">Input Latency</div>
+                <div class="v-item-val">Virtual DOM</div>
+                <div class="v-item-label">Windowing Engine</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Requirements & Architecture Notes -->
+    <section class="section reveal" id="requirements">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-label">Transparency &amp; Trust</span>
+          <h2 class="section-title">Requirements &amp; Technical Notes.</h2>
+          <p class="section-desc">
+            Full transparency on system dependencies, binary signatures, and plugin architecture before you download.
+          </p>
+        </div>
+
+        <div class="requirements-grid">
+          <!-- Note 1: Windows & WebView2 -->
+          <div class="req-card spotlight-card">
+            <div class="req-header">
+              <div class="req-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3 class="req-title">Windows 10 / 11 &amp; WebView2</h3>
+            </div>
+            <p class="req-desc">
+              Requires 64-bit <b>Windows 10 (Version 1809+)</b> or <b>Windows 11</b>. Onyx utilizes the Microsoft Edge WebView2 Evergreen runtime, which is pre-installed on modern Windows systems.
+            </p>
+            <span class="req-badge">x64 Native Architecture</span>
+          </div>
+
+          <!-- Note 2: SmartScreen Notice -->
+          <div class="req-card spotlight-card">
+            <div class="req-header">
+              <div class="req-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3 class="req-title">SmartScreen &amp; Unsigned Binaries</h3>
+            </div>
+            <p class="req-desc">
+              Onyx is 100% open-source and built transparently on GitHub without an expensive commercial EV certificate. Windows Defender SmartScreen may display an <i>"Unknown Publisher"</i> warning on first launch. Click <b>"More info"</b> → <b>"Run anyway"</b>.
+            </p>
+            <span class="req-badge">100% Auditable GitHub Builds</span>
+          </div>
+
+          <!-- Note 3: Audio & Stream Extraction -->
+          <div class="req-card spotlight-card">
+            <div class="req-header">
+              <div class="req-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+              </div>
+              <h3 class="req-title">Native Audio &amp; Stream Dispatch</h3>
+            </div>
+            <p class="req-desc">
+              Audio streams are extracted via native Rust IPC and rendered through the Web Audio API / WASAPI 24-bit direct audio pipeline with dual-slot gapless crossfade.
+            </p>
+            <span class="req-badge">Direct WASAPI · 48 kHz / 24-Bit</span>
+          </div>
+
+          <!-- Note 4: Privacy & Keys -->
+          <div class="req-card spotlight-card">
+            <div class="req-header">
+              <div class="req-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h3 class="req-title">Last.fm Keys &amp; Local Storage</h3>
+            </div>
+            <p class="req-desc">
+              The built-in Last.fm scrobbler uses your own free personal API keys (obtainable at <a href="https://www.last.fm/api/account/create" target="_blank" rel="noreferrer">last.fm/api</a>). Login cookies and cache remain strictly on your machine in <code>%LOCALAPPDATA%</code>.
+            </p>
+            <span class="req-badge">Zero Intermediate Cloud Servers</span>
           </div>
         </div>
       </div>
@@ -428,7 +512,11 @@
                 </li>
                 <li>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Clean one-click uninstaller</span>
+                  <span>Clean one-click uninstaller in Windows Settings</span>
+                </li>
+                <li>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Standard currentUser install (No admin required)</span>
                 </li>
               </ul>
             </div>
@@ -456,19 +544,19 @@
               <ul class="box-list">
                 <li>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Zero installation required</span>
+                  <span>Zero installation required · Single executable</span>
                 </li>
                 <li>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Runs directly from USB or any folder</span>
+                  <span>Run directly from USB drive or any folder</span>
                 </li>
                 <li>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Leaves no registry footprint</span>
+                  <span>Stores cache &amp; session in %LOCALAPPDATA%</span>
                 </li>
                 <li>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>Self-contained portable execution</span>
+                  <span>Requires Windows 10/11 with WebView2 Runtime</span>
                 </li>
               </ul>
             </div>

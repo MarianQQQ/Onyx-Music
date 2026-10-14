@@ -1060,6 +1060,84 @@ body {
   shrink: 0;
 }
 
+/* Requirements & Technical Notes Section */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.req-card {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.req-card:hover {
+  border-color: rgba(255, 34, 34, 0.3);
+}
+
+.req-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.req-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 34, 34, 0.08);
+  border: 1px solid rgba(255, 34, 34, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-red);
+  shrink: 0;
+}
+
+.req-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.req-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.req-desc b {
+  color: var(--text-white);
+}
+
+.req-desc a {
+  color: var(--text-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.req-desc a:hover {
+  color: var(--accent-red);
+}
+
+.req-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--border-subtle);
@@ -1111,6 +1189,9 @@ body {
     font-size: 2.7rem;
   }
   .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .requirements-grid {
     grid-template-columns: 1fr;
   }
   .download-deck {
