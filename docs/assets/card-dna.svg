@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0a10"/>
+      <stop offset="60%" stop-color="#09080c"/>
+      <stop offset="100%" stop-color="#050406"/>
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff1e42"/>
+      <stop offset="50%" stop-color="#4d0012"/>
+      <stop offset="100%" stop-color="#ff2252"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="dnaGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    /* static */
+
+    /* static */
+
+    /* static */
+
+    /* static */
+
+    .border-runner {
+      stroke-dasharray: none;
+      opacity: 0.9;
+    }
+
+    .corner {
+      opacity: 0.9;
+    }
+
+    .synapse-flow {
+      stroke-dasharray: 6 6;
+      opacity: 0.9;
+    }
+
+    .pulsing-node {
+      opacity: 0.9;
+    }
+  </style>
+
+  <!-- Card Background -->
+  <rect x="0" y="0" width="480" height="260" rx="12" fill="url(#cardBg)" stroke="#1a1218" stroke-width="1"/>
+  <rect x="8" y="8" width="464" height="244" rx="8" fill="none" stroke="#ff1e42" stroke-width="0.8" stroke-opacity="0.18"/>
+  <rect class="border-runner" x="8" y="8" width="464" height="244" rx="8" fill="none" stroke="url(#borderGrad)" stroke-width="1.8" filter="url(#dnaGlow)"/>
+
+  <!-- Animated Corner Brackets -->
+  <g class="corner">
+    <path d="M 6 26 L 6 6 L 26 6" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="4" y="4" width="4" height="4" fill="#ffffff"/>
+  </g>
+  <g class="corner">
+    <path d="M 454 6 L 474 6 L 474 26" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="472" y="4" width="4" height="4" fill="#ffffff"/>
+  </g>
+  <g class="corner">
+    <path d="M 6 234 L 6 254 L 26 254" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="4" y="252" width="4" height="4" fill="#ffffff"/>
+  </g>
+  <g class="corner">
+    <path d="M 454 254 L 474 254 L 474 234" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="472" y="252" width="4" height="4" fill="#ffffff"/>
+  </g>
+
+  <!-- Header Section -->
+  <g transform="translate(24, 24)">
+    <!-- DNA Helix Icon -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="36" height="36" rx="8" fill="#1f0a14" stroke="#ff1e42" stroke-width="1.2"/>
+      <circle cx="12" cy="12" r="3" fill="#ff2252"/>
+      <circle cx="24" cy="24" r="3" fill="#ff2252"/>
+      <circle cx="24" cy="12" r="2.5" fill="#00ff88"/>
+      <circle cx="12" cy="24" r="2.5" fill="#00ff88"/>
+      <line x1="12" y1="12" x2="24" y2="24" stroke="#ffffff" stroke-width="1.2"/>
+      <line x1="24" y1="12" x2="12" y2="24" stroke="#ffffff" stroke-width="1.2"/>
+    </g>
+
+    <text x="46" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="16" fill="#ffffff" letter-spacing="0.5">
+      ARCHITECTURAL DNA
+    </text>
+    <text x="46" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#ff4d6d" letter-spacing="1">
+      BEST OF BOTH WORLDS • HYBRID FUSION
+    </text>
+
+    <!-- Fusion Badge -->
+    <rect x="340" y="4" width="86" height="22" rx="6" fill="#ff1e42" fill-opacity="0.12" stroke="#ff1e42" stroke-width="1"/>
+    <text x="383" y="19" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9.5" font-weight="700" fill="#ffffff" letter-spacing="0.8">FUSION ARCH</text>
+  </g>
+
+  <!-- Dual Column Comparison Frame -->
+  <g transform="translate(24, 76)">
+    <!-- Column 1: th-ch/youtube-music -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="206" height="98" rx="8" fill="#130e17" stroke="#251620" stroke-width="1"/>
+      <text x="14" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#ff4d6d">
+        th-ch/youtube-music
+      </text>
+      <text x="14" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9.5" fill="#7d8196">
+        Rich Plugin Ecosystem
+      </text>
+      <!-- Benefits -->
+      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#c0c4d6">
+        ✓ Synced lyrics &amp; visualizers
+      </text>
+      <text x="14" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#c0c4d6">
+        ✓ Discord RPC &amp; Tray controls
+      </text>
+      <text x="14" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#ff8090">
+        ✗ Electron &amp; Chromium Bloat
+      </text>
+    </g>
+
+    <!-- Glowing Synapse / Connector Node in Center -->
+    <g transform="translate(216, 49)">
+      <line class="synapse-flow" x1="-8" y1="0" x2="8" y2="0" stroke="#ff2252" stroke-width="2"/>
+      <circle class="pulsing-node" cx="0" cy="0" r="5" fill="#00ff88" filter="url(#softGlow)"/>
+    </g>
+
+    <!-- Column 2: pear-desktop -->
+    <g transform="translate(226, 0)">
+      <rect x="0" y="0" width="206" height="98" rx="8" fill="#130e17" stroke="#251620" stroke-width="1"/>
+      <text x="14" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#00ff88">
+        pear-desktop
+      </text>
+      <text x="14" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9.5" fill="#7d8196">
+        Ultra Minimalism
+      </text>
+      <!-- Benefits -->
+      <text x="14" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#c0c4d6">
+        ✓ Featherweight &lt;65MB RAM
+      </text>
+      <text x="14" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#c0c4d6">
+        ✓ Instant snappy responsiveness
+      </text>
+      <text x="14" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#c0c4d6">
+        ✓ Zero background CPU drain
+      </text>
+    </g>
+  </g>
+
+  <!-- Synthesis Output Banner -->
+  <g transform="translate(24, 186)">
+    <rect x="0" y="0" width="432" height="34" rx="6" fill="#1d0f19" stroke="#ff1e42" stroke-width="1"/>
+    <text x="216" y="22" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.8">
+      🔥 <tspan fill="#ff385c">OUR ENGINE:</tspan> All features preserved • 100% Native Rust &amp; SolidJS
+    </text>
+  </g>
+
+  <!-- Footer Micro Status -->
+  <g transform="translate(24, 240)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace" font-size="9.5">
+    <text x="0" y="0" fill="#606478">MEMORY RATIO: <tspan fill="#00ff88" font-weight="700">1/10th OF ELECTRON</tspan></text>
+    <text x="432" y="0" text-anchor="end" fill="#00ff88">0% IDLE CPU</text>
+  </g>
+</svg>

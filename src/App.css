@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: #1a1a1a;
+  }
+
+  html, body {
+    font-size: 16px;
+  }
+
+  html {
+    background-color: #000000;
+  }
+
+  body {
+    background-color: #000000;
+    color: #e5e5e5;
+    user-select: none;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Segoe UI Mono", monospace;
+    letter-spacing: -0.015em;
+  }
+
+  /* Dedicated Monospace utility */
+  .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    letter-spacing: -0.02em;
+  }
+
+  /* Custom crisp minimalist scrollbars */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222222;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff2222;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes eq-bar-1 {
+  0%, 100% { transform: scaleY(0.28); }
+  50% { transform: scaleY(1); }
+}
+@keyframes eq-bar-2 {
+  0%, 100% { transform: scaleY(1); }
+  33% { transform: scaleY(0.35); }
+  66% { transform: scaleY(0.78); }
+}
+@keyframes eq-bar-3 {
+  0%, 100% { transform: scaleY(0.5); }
+  40% { transform: scaleY(1); }
+  80% { transform: scaleY(0.28); }
+}
+
+.animate-eq-1 {
+  height: 14px;
+  transform-origin: bottom;
+  will-change: transform;
+  animation: eq-bar-1 0.8s ease-in-out infinite;
+}
+.animate-eq-2 {
+  height: 14px;
+  transform-origin: bottom;
+  will-change: transform;
+  animation: eq-bar-2 0.7s ease-in-out infinite;
+}
+.animate-eq-3 {
+  height: 14px;
+  transform-origin: bottom;
+  will-change: transform;
+  animation: eq-bar-3 0.9s ease-in-out infinite;
+}
+

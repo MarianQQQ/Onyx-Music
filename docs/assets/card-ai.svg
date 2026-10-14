@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0a10"/>
+      <stop offset="60%" stop-color="#09080c"/>
+      <stop offset="100%" stop-color="#050406"/>
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff1e42"/>
+      <stop offset="50%" stop-color="#4d0012"/>
+      <stop offset="100%" stop-color="#ff2252"/>
+    </linearGradient>
+
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff4d6d"/>
+      <stop offset="100%" stop-color="#990022"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="aiGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    /* static */
+
+    /* static */
+
+    /* static */
+
+    /* static */
+
+    .border-runner {
+      stroke-dasharray: none;
+      opacity: 0.9;
+    }
+
+    .corner {
+      opacity: 0.9;
+    }
+
+    .sweep-line {
+      opacity: 0.9;
+    }
+
+    .live-dot {
+      opacity: 0.9;
+      transform-origin: center;
+    }
+  </style>
+
+  <!-- Card Background -->
+  <rect x="0" y="0" width="480" height="260" rx="12" fill="url(#cardBg)" stroke="#1a1218" stroke-width="1"/>
+  <rect x="8" y="8" width="464" height="244" rx="8" fill="none" stroke="#ff1e42" stroke-width="0.8" stroke-opacity="0.18"/>
+  <rect class="border-runner" x="8" y="8" width="464" height="244" rx="8" fill="none" stroke="url(#borderGrad)" stroke-width="1.8" filter="url(#aiGlow)"/>
+
+  <!-- Scanning Radar Beam -->
+  <line class="sweep-line" x1="12" y1="20" x2="468" y2="20" stroke="#ff2252" stroke-width="1.2" stroke-opacity="0.5" filter="url(#softGlow)"/>
+
+  <!-- Animated Corner Brackets -->
+  <!-- Top-Left -->
+  <g class="corner">
+    <path d="M 6 26 L 6 6 L 26 6" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="4" y="4" width="4" height="4" fill="#ffffff" filter="url(#softGlow)"/>
+  </g>
+  <!-- Top-Right -->
+  <g class="corner">
+    <path d="M 454 6 L 474 6 L 474 26" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="472" y="4" width="4" height="4" fill="#ffffff" filter="url(#softGlow)"/>
+  </g>
+  <!-- Bottom-Left -->
+  <g class="corner">
+    <path d="M 6 234 L 6 254 L 26 254" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="4" y="252" width="4" height="4" fill="#ffffff" filter="url(#softGlow)"/>
+  </g>
+  <!-- Bottom-Right -->
+  <g class="corner">
+    <path d="M 454 254 L 474 254 L 474 234" fill="none" stroke="#ff1e42" stroke-width="3" stroke-linecap="round"/>
+    <rect x="472" y="252" width="4" height="4" fill="#ffffff" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- Header Section -->
+  <g transform="translate(24, 24)">
+    <!-- Shield Icon with Crossmark -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="36" height="36" rx="8" fill="#1f0a14" stroke="#ff1e42" stroke-width="1.2"/>
+      <!-- Shield Path -->
+      <path d="M 18 8 L 29 12 C 29 20 23 25 18 28 C 13 25 7 20 7 12 Z" fill="url(#shieldGrad)" filter="url(#softGlow)"/>
+      <path d="M 14 15 L 22 23 M 22 15 L 14 23" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <text x="46" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="16" fill="#ffffff" letter-spacing="0.5">
+      AI SONG FILTER
+    </text>
+    <text x="46" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#ff4d6d" letter-spacing="1">
+      ZERO CPU/GPU FOOTPRINT • HEURISTIC ENGINE
+    </text>
+
+    <!-- Top Badge -->
+    <rect x="340" y="4" width="86" height="22" rx="6" fill="#00ff88" fill-opacity="0.12" stroke="#00ff88" stroke-width="1"/>
+    <circle class="live-dot" cx="350" cy="15" r="3.5" fill="#00ff88"/>
+    <text x="360" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="9.5" font-weight="700" fill="#00ff88" letter-spacing="0.8">0.0% CPU</text>
+  </g>
+
+  <!-- Filter Pipeline Info Box -->
+  <g transform="translate(24, 76)">
+    <rect x="0" y="0" width="432" height="64" rx="8" fill="#130e16" stroke="#2a1820" stroke-width="1"/>
+    
+    <text x="14" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#d0d2dc">
+      Pre-emptively purges AI garbage before it hits your queue.
+    </text>
+    <text x="14" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace" font-size="10.5" fill="#ff385c" font-weight="600">
+      BLOCKED: <tspan fill="#ffffff">Suno AI • Udio • AI Covers • Voice Clones</tspan>
+    </text>
+  </g>
+
+  <!-- Feature Micro Grid -->
+  <g transform="translate(24, 154)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace">
+    <!-- Item 1 -->
+    <g transform="translate(0, 0)">
+      <circle cx="6" cy="6" r="3" fill="#ff1e42"/>
+      <text x="16" y="9" font-size="11" font-weight="700" fill="#ffffff">O(1) Regex Heuristics</text>
+      <text x="16" y="23" font-size="9.5" fill="#75798e">Instant string parsing on feed fetch</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(224, 0)">
+      <circle cx="6" cy="6" r="3" fill="#ff1e42"/>
+      <text x="16" y="9" font-size="11" font-weight="700" fill="#ffffff">1-Click Blacklist</text>
+      <text x="16" y="23" font-size="9.5" fill="#75798e">Permanent channel/artist purging</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(0, 42)">
+      <circle cx="6" cy="6" r="3" fill="#00ff88"/>
+      <text x="16" y="9" font-size="11" font-weight="700" fill="#ffffff">Official Badge Shield</text>
+      <text x="16" y="23" font-size="9.5" fill="#75798e">Protects verified artist channels</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(224, 42)">
+      <circle cx="6" cy="6" r="3" fill="#00ff88"/>
+      <text x="16" y="9" font-size="11" font-weight="700" fill="#ffffff">Zero Network Extra</text>
+      <text x="16" y="23" font-size="9.5" fill="#75798e">No external classifier API required</text>
+    </g>
+  </g>
+
+  <!-- Bottom Metric Bar -->
+  <g transform="translate(24, 236)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', monospace" font-size="9.5">
+    <text x="0" y="0" fill="#606478">STATUS: <tspan fill="#00ff88" font-weight="700">HEURISTIC ENGINE ONLINE</tspan></text>
+    <text x="432" y="0" text-anchor="end" fill="#ff4d6d">FILTER EFFICIENCY: 100%</text>
+  </g>
+</svg>

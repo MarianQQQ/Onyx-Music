@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Onyx Music Official Vector Icon -->
+  <!-- Outer Red Rim -->
+  <circle cx="256" cy="256" r="230" stroke="#ff2222" stroke-width="36" />
+  <!-- Inner Onyx Core Disc -->
+  <circle cx="256" cy="256" r="206" fill="#080808" stroke="#1c1c1c" stroke-width="3" />
+  <!-- Subtle Inner Groove -->
+  <circle cx="256" cy="256" r="162" stroke="#161616" stroke-width="2" fill="none" />
+  <!-- Bold Centered Play Triangle -->
+  <path d="M 218 162 L 338 256 L 218 350 Z" fill="#ff2222" stroke="#ff2222" stroke-width="6" stroke-linejoin="round" />
+</svg>
