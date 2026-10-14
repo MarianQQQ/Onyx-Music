@@ -259,6 +259,8 @@ body {
 .hero-header-box {
   max-width: 820px;
   margin: 0 auto 36px auto;
+  position: relative;
+  z-index: 20;
 }
 
 .hero-meta-pill {
@@ -430,7 +432,9 @@ body {
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 30;
 }
 
 .download-split-btn {
@@ -440,6 +444,7 @@ body {
   border-radius: 6px;
   box-shadow: 0 0 24px var(--accent-red-glow);
   position: relative;
+  z-index: 40;
 }
 
 .split-btn-main {
@@ -476,14 +481,16 @@ body {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  width: 290px;
-  background: #0e0e0e;
-  border: 1px solid var(--border-hover);
+  width: 310px;
+  background: rgba(14, 14, 14, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 34, 34, 0.35);
   border-radius: 8px;
   padding: 6px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 34, 34, 0.15);
   display: none;
-  z-index: 50;
+  z-index: 9999;
   text-align: left;
 }
 
@@ -519,8 +526,9 @@ body {
 /* Master Hardware Window Mockup Centerpiece */
 .showcase-stage {
   max-width: 1080px;
-  margin: 40px auto 0 auto;
+  margin: 55px auto 0 auto;
   position: relative;
+  z-index: 1;
 }
 
 .showcase-stage::before {
