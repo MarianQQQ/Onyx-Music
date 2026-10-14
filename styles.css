@@ -144,18 +144,6 @@ body {
   transform: scale(1.08) rotate(15deg);
 }
 
-.version-badge {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--accent-red);
-  background: var(--accent-red-subtle);
-  border: 1px solid rgba(255, 34, 34, 0.25);
-  padding: 2px 7px;
-  border-radius: 3px;
-  letter-spacing: 0.04em;
-}
-
 .nav-links {
   display: flex;
   align-items: center;
@@ -372,58 +360,8 @@ body {
   font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.65;
-  margin: 0 auto 28px auto;
+  margin: 0 auto 36px auto;
   max-width: 620px;
-}
-
-/* Interactive Hardware Waveform Oscilloscope */
-.hero-waveform-container {
-  max-width: 620px;
-  margin: 0 auto 32px auto;
-  background: rgba(5, 5, 5, 0.85);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 10px 14px 8px 14px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 34, 34, 0.05);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.hero-waveform-container:hover {
-  border-color: rgba(255, 34, 34, 0.35);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 34, 34, 0.12);
-}
-
-.hero-waveform-canvas {
-  width: 100%;
-  height: 52px;
-  display: block;
-  cursor: crosshair;
-}
-
-.waveform-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 6px;
-  padding-top: 6px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-dim);
-  letter-spacing: 0.04em;
-}
-
-.waveform-live-dot {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent-red);
-  box-shadow: 0 0 6px var(--accent-red);
-  margin-right: 5px;
-  animation: radarPulse 1.8s infinite ease-in-out;
 }
 
 .hero-actions {

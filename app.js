@@ -4,7 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeroTilt();
-  initHeroWaveform();
   initSpotlightCards();
   initScrollReveal();
   initLyricsInteractiveDemo();
@@ -53,119 +52,7 @@ function initHeroTilt() {
 }
 
 // --------------------------------------------------------
-// 2. Interactive Studio Oscilloscope Waveform (Audio Ribbon)
-// --------------------------------------------------------
-function initHeroWaveform() {
-  const canvas = document.getElementById('hero-waveform');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  let width = 0;
-  let height = 0;
-  let dpr = window.devicePixelRatio || 1;
-
-  function resize() {
-    dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    width = rect.width * dpr;
-    height = rect.height * dpr;
-    canvas.width = width;
-    canvas.height = height;
-  }
-
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-
-  let time = 0;
-  let mouse = { x: -1000, y: -1000, isHovered: false, ampTarget: 1.0, currentAmp: 1.0 };
-
-  const container = canvas.closest('.hero-waveform-container');
-  if (container) {
-    container.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = (e.clientX - rect.left) * dpr;
-      mouse.y = (e.clientY - rect.top) * dpr;
-      mouse.isHovered = true;
-      mouse.ampTarget = 1.6;
-    });
-
-    container.addEventListener('mouseleave', () => {
-      mouse.isHovered = false;
-      mouse.ampTarget = 1.0;
-    });
-  }
-
-  function drawWave(amplitude, frequency, speed, color, lineWidth, phaseOffset, glow = false) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.strokeStyle = color;
-    ctx.lineWidth = lineWidth * dpr;
-    if (glow) {
-      ctx.shadowColor = '#ff2222';
-      ctx.shadowBlur = 10 * dpr;
-    }
-
-    const midY = height / 2;
-    const step = 2 * dpr;
-
-    for (let x = 0; x <= width; x += step) {
-      // Local mouse ripple influence
-      let localAmp = amplitude;
-      if (mouse.isHovered) {
-        const dx = Math.abs(x - mouse.x);
-        if (dx < 120 * dpr) {
-          const factor = 1 - dx / (120 * dpr);
-          localAmp += Math.sin(time * 6 + factor * 4) * 8 * dpr * factor;
-        }
-      }
-
-      const wave1 = Math.sin(x * frequency + time * speed + phaseOffset) * localAmp;
-      const wave2 = Math.cos(x * (frequency * 0.5) - time * (speed * 0.4)) * (localAmp * 0.35);
-      const y = midY + wave1 + wave2;
-
-      if (x === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
-    }
-
-    ctx.stroke();
-    ctx.restore();
-  }
-
-  function render() {
-    ctx.clearRect(0, 0, width, height);
-
-    // Subtle dampening
-    mouse.currentAmp += (mouse.ampTarget - mouse.currentAmp) * 0.08;
-    time += 0.025;
-
-    // Draw hardware tick marks along top & bottom border
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-    const tickSpacing = 24 * dpr;
-    for (let x = 0; x < width; x += tickSpacing) {
-      ctx.fillRect(x, 0, 1 * dpr, 4 * dpr);
-      ctx.fillRect(x, height - 4 * dpr, 1 * dpr, 4 * dpr);
-    }
-
-    // Tertiary subtle white harmonic wave
-    drawWave(5 * dpr * mouse.currentAmp, 0.015 / dpr, 0.8, 'rgba(255, 255, 255, 0.18)', 0.8, 1.2, false);
-
-    // Secondary warm red harmonic wave
-    drawWave(9 * dpr * mouse.currentAmp, 0.024 / dpr, -1.2, 'rgba(255, 34, 34, 0.45)', 1.1, 2.5, false);
-
-    // Primary carrier sine wave with bloom
-    drawWave(14 * dpr * mouse.currentAmp, 0.018 / dpr, 1.6, '#ff2222', 1.6, 0, true);
-
-    requestAnimationFrame(render);
-  }
-
-  render();
-}
-
-// --------------------------------------------------------
-// 3. Cursor Spotlight Tracker for Cards (Linear / Raycast Style)
+// 2. Cursor Spotlight Tracker for Cards (Linear / Raycast Style)
 // --------------------------------------------------------
 function initSpotlightCards() {
   const cards = document.querySelectorAll('.spotlight-card');
@@ -184,7 +71,7 @@ function initSpotlightCards() {
 }
 
 // --------------------------------------------------------
-// 4. Scroll Reveal Animations (IntersectionObserver)
+// 3. Scroll Reveal Animations (IntersectionObserver)
 // --------------------------------------------------------
 function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
@@ -210,7 +97,7 @@ function initScrollReveal() {
 }
 
 // --------------------------------------------------------
-// 5. Interactive Synced Lyrics Demo with Alt + Click Sim
+// 4. Interactive Synced Lyrics Demo with Alt + Click Sim
 // --------------------------------------------------------
 function initLyricsInteractiveDemo() {
   const lyricsContainer = document.getElementById('lyrics-demo');
@@ -276,7 +163,7 @@ function initLyricsInteractiveDemo() {
 }
 
 // --------------------------------------------------------
-// 6. Dropdown Menu Toggle
+// 5. Dropdown Menu Toggle
 // --------------------------------------------------------
 function initDropdownToggle() {
   const arrowBtn = document.querySelector('.split-btn-arrow');
@@ -299,7 +186,7 @@ function initDropdownToggle() {
 }
 
 // --------------------------------------------------------
-// 7. SponsorBlock Flash Notification on Skip
+// 6. SponsorBlock Flash Notification on Skip
 // --------------------------------------------------------
 function initSponsorBlockSync() {
   const sponsorTag = document.getElementById('sponsor-tag');
