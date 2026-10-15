@@ -27,7 +27,6 @@
   <!-- Ambient Atmosphere -->
   <div class="hero-ambient-spot" aria-hidden="true"></div>
   <div class="subtle-grid" aria-hidden="true"></div>
-  <div class="ambient-scanner-beam" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="site-header">
@@ -40,8 +39,8 @@
       <nav>
         <ul class="nav-links">
           <li><a href="#benchmarks">Telemetry</a></li>
-          <li><a href="#features">Architecture</a></li>
-          <li><a href="#requirements">Notes</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#requirements">Architecture</a></li>
           <li><a href="#download">Download</a></li>
         </ul>
       </nav>
@@ -53,7 +52,7 @@
           </svg>
           <span>GitHub</span>
         </a>
-        <a href="#download" class="btn btn-primary btn-small">Download</a>
+        <a href="#download" class="btn btn-primary btn-small">Download v0.2.0</a>
       </div>
     </div>
   </header>
@@ -63,20 +62,16 @@
     <section class="hero">
       <div class="wrap">
         <div class="hero-header-box reveal visible">
-          <div class="hero-meta-pill">
-            <span class="pill-border-beam" aria-hidden="true"></span>
-            <div class="pill-eq-bars" aria-hidden="true">
-              <span class="p-bar"></span>
-              <span class="p-bar"></span>
-              <span class="p-bar"></span>
-            </div>
-            <span>NATIVE YOUTUBE MUSIC DESKTOP CLIENT</span>
+          <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span class="badge-title">Onyx v0.2.0</span>
+            <span class="badge-sep">/</span>
+            <span class="badge-desc">Tauri v2 · Rust 2024 · SolidJS</span>
           </div>
 
           <h1 class="hero-title">
-            <span class="title-shimmer">Pure sound.</span><br />
-            <span class="title-faded">Zero bloat.</span><br />
-            <span class="title-accent">Done right.</span>
+            Pure sound. Zero bloat.
+            <span class="hero-title-sub">The YouTube Music desktop client, done right.</span>
           </h1>
 
           <p class="hero-lede">
@@ -111,7 +106,7 @@
             </div>
 
             <a href="#features" class="btn btn-quiet">
-              <span>View Architecture</span>
+              <span>View Features</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -132,10 +127,9 @@
     <section class="section reveal" id="benchmarks">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-label">Real Telemetry</span>
-          <h2 class="section-title">Engineered for speed, not bloat.</h2>
+          <h2 class="section-title">Verified Telemetry</h2>
           <p class="section-desc">
-            Direct measurements captured on Windows 11 (64-bit) during calm steady-state audio playback. Values for web-based alternatives represent typical observed memory ranges.
+            Direct measurements captured on Windows 11 (64-bit) during calm steady-state audio playback. Comparison figures reflect typical observed memory ranges.
           </p>
         </div>
 
@@ -215,10 +209,9 @@
     <section class="section reveal" id="features">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-label">Architecture</span>
-          <h2 class="section-title">The Four Pillars of Onyx.</h2>
+          <h2 class="section-title">Core Engineering</h2>
           <p class="section-desc">
-            Everything you wished official YouTube Music had, built with zero compromises.
+            Native desktop capabilities engineered directly into the audio pipeline.
           </p>
         </div>
 
@@ -227,7 +220,7 @@
           <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
-                <span class="pillar-num">01 / KARAOKE ENGINE</span>
+                <span class="pillar-category">Synced Lyrics</span>
                 <div class="pillar-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
@@ -236,9 +229,9 @@
                   </svg>
                 </div>
               </div>
-              <h3 class="pillar-title">Interactive Synced Lyrics</h3>
+              <h3 class="pillar-title">Interactive Karaoke Engine</h3>
               <p class="pillar-desc">
-                Centisecond-accurate karaoke lyrics (powered by LRCLIB) with smooth viewport centering. If timing drifts on any track, press <code>Alt + Click</code> on any line to recalibrate offset in real-time.
+                Centisecond-accurate karaoke lyrics powered by LRCLIB with viewport auto-centering. If timing drifts on any track, press <code>Alt + Click</code> on any line to recalibrate offset in real time.
               </p>
             </div>
 
@@ -263,7 +256,7 @@
           <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
-                <span class="pillar-num">02 / SMART FILTERING</span>
+                <span class="pillar-category">Stream Intelligence</span>
                 <div class="pillar-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -279,8 +272,8 @@
             <!-- Interactive Demo Inside Card -->
             <div class="sponsor-timeline-box">
               <div class="sponsor-badge-row">
-                <span>TRACK TIMELINE: 03:42</span>
-                <span class="sponsor-tag" id="sponsor-tag">AUTO-SKIPPED: 0:45 – 1:15</span>
+                <span>Track Timeline: 03:42</span>
+                <span class="sponsor-tag" id="sponsor-tag">Auto-Skipped: 0:45 – 1:15</span>
               </div>
               <div class="sponsor-bar-track">
                 <div class="sponsor-segment-fill" title="Sponsor Segment"></div>
@@ -298,7 +291,7 @@
           <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
-                <span class="pillar-num">03 / DSP ENGINE</span>
+                <span class="pillar-category">Audio Pipeline &amp; DSP</span>
                 <div class="pillar-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="4" y1="21" x2="4" y2="14"></line>
@@ -354,7 +347,7 @@
           <div class="pillar-card spotlight-card">
             <div>
               <div class="pillar-header">
-                <span class="pillar-num">04 / OPTIMIZATION</span>
+                <span class="pillar-category">Virtual DOM</span>
                 <div class="pillar-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
@@ -371,17 +364,17 @@
             <div class="virtual-metric-box">
               <div>
                 <div class="v-item-val" style="color: #22c55e;">60–120Hz</div>
-                <div class="v-item-label">Display Refresh Rate</div>
+                <div class="v-item-label">Display Refresh</div>
               </div>
               <div style="width: 1px; height: 32px; background: #222;"></div>
               <div>
                 <div class="v-item-val">35 Rows</div>
-                <div class="v-item-label">Active DOM Nodes</div>
+                <div class="v-item-label">Active DOM Window</div>
               </div>
               <div style="width: 1px; height: 32px; background: #222;"></div>
               <div>
-                <div class="v-item-val">Virtual DOM</div>
-                <div class="v-item-label">Windowing Engine</div>
+                <div class="v-item-val">~79.9 MB</div>
+                <div class="v-item-label">UI Process RAM</div>
               </div>
             </div>
           </div>
@@ -393,10 +386,9 @@
     <section class="section reveal" id="requirements">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-label">Transparency &amp; Trust</span>
-          <h2 class="section-title">Requirements &amp; Technical Notes.</h2>
+          <h2 class="section-title">System Requirements &amp; Architecture</h2>
           <p class="section-desc">
-            Full transparency on system dependencies, binary signatures, and plugin architecture before you download.
+            Direct transparency on system dependencies, binary signatures, and storage before you download.
           </p>
         </div>
 
@@ -476,8 +468,7 @@
     <section class="section reveal" id="download">
       <div class="wrap">
         <div class="section-head">
-          <span class="section-label">Get Started</span>
-          <h2 class="section-title">Download Onyx Music v0.2.0</h2>
+          <h2 class="section-title">Download Onyx Music</h2>
           <p class="section-desc">
             Free, open-source, and privacy-respecting. Pick the package that best fits your setup.
           </p>
