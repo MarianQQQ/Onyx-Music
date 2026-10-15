@@ -661,30 +661,58 @@ body {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
+  table-layout: fixed;
+}
+
+.benchmark-table thead tr {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .benchmark-table th {
-  padding: 18px 24px;
-  font-size: 0.76rem;
+  padding: 16px 24px;
+  font-size: 0.74rem;
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: #0c0c0c;
+  background: transparent;
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.benchmark-table th:nth-child(1) {
+  width: 44%;
+}
+
+.benchmark-table th:nth-child(2) {
+  width: 28%;
+}
+
+.benchmark-table th:nth-child(3) {
+  width: 28%;
 }
 
 .benchmark-table th.col-onyx {
   color: var(--accent-red);
-  background: rgba(255, 34, 34, 0.06);
-  border-bottom: 1px solid rgba(255, 34, 34, 0.3);
+  background: transparent;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.benchmark-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.benchmark-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .benchmark-table td {
   padding: 18px 24px;
   font-size: 0.88rem;
   border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+  background: transparent;
 }
 
 .benchmark-table tr:last-child td {
@@ -692,10 +720,15 @@ body {
 }
 
 .benchmark-table td.col-onyx {
-  background: rgba(255, 34, 34, 0.02);
+  background: transparent;
   font-family: var(--font-mono);
   font-weight: 600;
   color: #fff;
+  white-space: nowrap;
+}
+
+.benchmark-table td.tag-red {
+  white-space: nowrap;
 }
 
 .metric-title {
